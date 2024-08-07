@@ -16,12 +16,10 @@ public class Menu extends JDialog {
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
         administrador.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            setMinimumSize(new Dimension(475, 474));
-            setModal(true);
-            setLocationRelativeTo(parent);
             dispose();
             Login login = new Login(parent);
             login.setVisible(true);
@@ -31,13 +29,11 @@ public class Menu extends JDialog {
         cajero.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setMinimumSize(new Dimension(475, 474));
-                setModal(true);
-                setLocationRelativeTo(parent);
                 dispose();
                 Login login = new Login(parent);
                 login.setVisible(true);
             }
         });
+        setVisible(true);
     }
 }

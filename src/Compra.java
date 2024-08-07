@@ -36,14 +36,13 @@ public class Compra extends JDialog {
                 String Apellido = apellido.getText();
                 String Cedula = cedula.getText();
                 String Codigo = codigo.getText();
-                String CodigoBorrar = codigoBorrar.getText();
 
                 String URL = "jdbc:mysql://localhost:3306/productos";
                 String USER = "root";
                 String PASSWORD = "";
 
                 try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-                    String sql = "INSERT INTO cliente(nombre, apellido, cedula, codigo) VALUES (?,?,?,?)";
+                    String sql = "INSERT INTO CLIENTE (nombre, apellido, cedula, codigo) VALUES (?,?,?,?)";
                     try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                         preparedStatement.setString(1, Nombre);
                         preparedStatement.setString(2, Apellido);
@@ -53,16 +52,11 @@ public class Compra extends JDialog {
                         preparedStatement.executeUpdate();
                         JOptionPane.showMessageDialog(null, " Conexion exitosa");
 
-                        if (connection != null) {
-                            connection.close();
-                        }else {
-                            JOptionPane.showMessageDialog(null, "Conexion no realizada", "Error", JOptionPane.ERROR_MESSAGE);
-                        }
                         String notaVenta = generarnotaVenta(Nombre,Apellido,Cedula,Codigo);
                         textArea1.setText(notaVenta);
                     }
                 } catch (SQLException ex) {
-                    throw new RuntimeException();
+                    JOptionPane.showMessageDialog(null,"Error al registrar la compra" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -91,7 +85,6 @@ public class Compra extends JDialog {
                     }
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Datos no modificados" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-                    throw new RuntimeException();
                 }
             }
         });
@@ -117,7 +110,7 @@ public class Compra extends JDialog {
                         }
                     }
                 } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(null,"Error al eliminar los datos" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

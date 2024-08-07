@@ -29,11 +29,10 @@ public class Login extends JDialog {
                 user = getAuthenticatedUser(usuario, password);
 
                 if(user != null){
-
-                    Compra compra = new Compra(parent);
-                    compra.setContentPane(compra);
-                    compra.setVisible(true);
                     dispose();
+
+                    Productos productos = new Productos(parent);
+                    productos.setVisible(true);
                 }else{
                     JOptionPane.showMessageDialog(Login.this,
                             "Usuario o Password incorrecto",
@@ -60,7 +59,6 @@ public class Login extends JDialog {
         try{
             Connection connection = DriverManager.getConnection(URL,USER,PASSWORD);
 
-            Statement statement = connection.createStatement();
             String sql = "SELECT * FROM USUARIO WHERE username =? AND password =? ";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,usuario);

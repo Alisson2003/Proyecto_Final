@@ -8,13 +8,16 @@ public class Main {
         Menu menu = new Menu(null);
         menu.setVisible(true);
         Login login = new Login(null);
+        login.setVisible(true);
         User user = login.user;
-        if(user != null){
-            System.out.println("Inicio exitoso: "+ user.getUsuario());
-        }else{
-            System.out.println("Iniciado Fallido");
-        }
+//        if(user != null){
+//            System.out.println("Inicio exitoso: "+ user.getUsuario());
+//        }else{
+//            System.out.println("Iniciado Fallido");
+//        }
         Compra compra = new Compra(null);
         compra.setVisible(true);
+        Productos productos = new Productos(null);
+        productos.setVisible(true);
     }
 }
