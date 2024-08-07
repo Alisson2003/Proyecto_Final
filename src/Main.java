@@ -5,6 +5,8 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
+        Menu menu = new Menu(null);
+        menu.setVisible(true);
         Login login = new Login(null);
         User user = login.user;
         if(user != null){
@@ -12,5 +14,7 @@ public class Main {
         }else{
             System.out.println("Iniciado Fallido");
         }
+        Compra compra = new Compra(null);
+        compra.setVisible(true);
     }
 }

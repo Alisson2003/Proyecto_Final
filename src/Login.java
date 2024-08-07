@@ -15,7 +15,7 @@ public class Login extends JDialog {
         super(parent);
         setTitle("Login");
         setContentPane(loginPanel);
-        setMinimumSize(new Dimension(450, 474));
+        setMinimumSize(new Dimension(475, 474));
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -29,6 +29,10 @@ public class Login extends JDialog {
                 user = getAuthenticatedUser(usuario, password);
 
                 if(user != null){
+
+                    Compra compra = new Compra(parent);
+                    compra.setContentPane(compra);
+                    compra.setVisible(true);
                     dispose();
                 }else{
                     JOptionPane.showMessageDialog(Login.this,
@@ -36,19 +40,16 @@ public class Login extends JDialog {
                             "Error",
                             JOptionPane.ERROR_MESSAGE);
                 }
-
             }
         });
         cancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-
             }
         });
         setVisible(true);
     }
-
     public User user;
     private User getAuthenticatedUser(String usuario, String password){
         User user = null;
@@ -56,12 +57,11 @@ public class Login extends JDialog {
         String URL = "jdbc:mysql://localhost:3306/productos";
         String USER = "root";
         String PASSWORD = "";
-
         try{
             Connection connection = DriverManager.getConnection(URL,USER,PASSWORD);
 
             Statement statement = connection.createStatement();
-            String sql = "select * from USUARIO where username =? and password =? ";
+            String sql = "SELECT * FROM USUARIO WHERE username =? AND password =? ";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,usuario);
             preparedStatement.setString(2,password);
