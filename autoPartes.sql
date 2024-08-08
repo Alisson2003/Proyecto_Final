@@ -24,17 +24,15 @@ CREATE TABLE PRODUCTO (
 );
 INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, marca)
 VALUES ('CP001', 'Bateria', 'Encargado de generar electricidad al automovil ', 100 , 1, 'Ecuador');
-INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, categoria)
+INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, marca)
 VALUES ('CP002', 'Bomba de agua', 'Encargado de que no se recaliente el motor', 40, 2, 'GM');
-INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, categoria)
+INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, marca)
 VALUES ('CP003', 'Termostato', 'Encargado de enfriar el motor', 20, 1, 'GM');
-INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, categoria)
-VALUES ('CP003', 'Disco de embrage', 'Encargado del funcionamiento de las marchas', 100, 1, 'Valeo');
-INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, categoria)
-VALUES ('CP003', 'Sensor de oxigeno', 'Encargado de controlar la emicion de gases', 75, 1, 'GM');
-
-INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, categoria)
-VALUES ('CP003', 'Bomba de combustible', 'Encargado de enviar combustible al motor', 40, 1, 'GM');
-
-INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, categoria)
-VALUES ('CP003','Radiador', 'Encargado de la circulacion de agua en el motor',70 , 1, 'GM');
+INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, marca)
+VALUES ('CP004', 'Disco de embrage', 'Encargado del funcionamiento de las marchas', 100, 1, 'Valeo');
+INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, marca)
+VALUES ('CP005', 'Sensor de oxigeno', 'Encargado de controlar la emicion de gases', 75, 1, 'GM');
+INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, marca)
+VALUES ('CP006', 'Bomba de combustible', 'Encargado de enviar combustible al motor', 40, 1, 'GM');
+INSERT INTO PRODUCTO (codigo_producto, nombre, descripcion, precio, cantidad, marca)
+VALUES ('CP007','Radiador', 'Encargado de la circulacion de agua en el motor',70 , 1, 'GM');
