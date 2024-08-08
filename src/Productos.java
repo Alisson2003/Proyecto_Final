@@ -12,7 +12,7 @@ public class Productos extends JDialog{
         super(parent);
         setTitle("Productos");
         setContentPane(productosPanel);
-        setMinimumSize(new Dimension(800, 600));
+        setMinimumSize(new Dimension(700, 600));
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -33,6 +33,5 @@ public class Productos extends JDialog{
                 compra.setVisible(true);
             }
         });
-        setVisible(true);
     }
 }

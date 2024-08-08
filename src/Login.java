@@ -30,7 +30,6 @@ public class Login extends JDialog {
 
                 if(user != null){
                     dispose();
-
                     Productos productos = new Productos(parent);
                     productos.setVisible(true);
                 }else{

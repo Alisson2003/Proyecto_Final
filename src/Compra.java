@@ -14,7 +14,6 @@ public class Compra extends JDialog {
     private JTextField codigoBorrar;
     private JButton MODIFICARButton;
     private JButton ELIMINARButton;
-    private JButton GUARDARButton;
     private JButton LIMPIARButton;
     private JTextArea textArea1;
     private JPanel compraPanel;
@@ -56,6 +55,7 @@ public class Compra extends JDialog {
                         textArea1.setText(notaVenta);
                     }
                 } catch (SQLException ex) {
+                    ex.printStackTrace();
                     JOptionPane.showMessageDialog(null,"Error al registrar la compra" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
@@ -85,6 +85,7 @@ public class Compra extends JDialog {
                     }
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Datos no modificados" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    ex.printStackTrace();
                 }
             }
         });
@@ -110,40 +111,8 @@ public class Compra extends JDialog {
                         }
                     }
                 } catch (SQLException ex) {
+                    ex.printStackTrace();
                     JOptionPane.showMessageDialog(null,"Error al eliminar los datos" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        });
-        GUARDARButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String Codigo = codigo.getText();
-                String Nombre = nombre.getText();
-                String Apellido = apellido.getText();
-                String Cedula = cedula.getText();
-
-                String URL = "jdbc:mysql://localhost:3306/productos";
-                String USER = "root";
-                String PASSWORD = "";
-
-                try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-                    String sql = "UPDATE CLIENTE SET nombre =?, apellido =?, cedula=?, codigo =? WHERE codigo =?";
-                    try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                        preparedStatement.setString(1, Nombre);
-                        preparedStatement.setString(2, Apellido);
-                        preparedStatement.setString(3, Cedula);
-                        preparedStatement.setString(4, Codigo);
-
-                        int statement = preparedStatement.executeUpdate();
-                        if (statement > 0) {
-                            JOptionPane.showMessageDialog(null, "Datos guardados exitosamente");
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Error al guardar los datos");
-                        }
-                    }
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Datos no modificados" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-                    throw new RuntimeException();
                 }
             }
         });
@@ -159,7 +128,6 @@ public class Compra extends JDialog {
                 textArea1.setText("");
             }
         });
-        setVisible(true);
     }
 
     private String generarnotaVenta(String nombre, String apellido, String cedula, String codigo) {

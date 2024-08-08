@@ -12,7 +12,7 @@ public class Menu extends JDialog {
         super(parent);
         setTitle("Login Principal");
         setContentPane(menuPanel);
-        setMinimumSize(new Dimension(500, 600));
+        setMinimumSize(new Dimension(600, 600));
         setModal(true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -34,6 +34,5 @@ public class Menu extends JDialog {
                 login.setVisible(true);
             }
         });
-        setVisible(true);
     }
 }
